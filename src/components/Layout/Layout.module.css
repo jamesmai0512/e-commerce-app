@@ -3,6 +3,7 @@
   min-width: 1350px;
 }
 
-.main {
+.body {
   padding-bottom: 380px;
+  min-height: 100vh;
 }

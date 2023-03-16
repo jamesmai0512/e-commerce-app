@@ -15,21 +15,17 @@ const Layout = ({ children }: LayoutProps) => {
 
   // Get the current path
   const path = router.pathname
-
-  const { layout, main } = styles
+  const { layout, body } = styles
+  const productId = '/products/[productId]'
 
   return (
-    <>
-      <div className={layout}>
-        <main className={main}>
-          {path === '/products/[productId]' ? <NavbarProduct /> : ''}
-          {path === '/products/[productId]' ? '' : <Header />}
-          {path === '/products/[productId]' ? '' : <Navbar />}
-          {children}
-          <Footer />
-        </main>
-      </div>
-    </>
+    <div className={layout}>
+      {path === productId ? <NavbarProduct /> : ''}
+      {path === productId ? '' : <Header />}
+      {path === productId ? '' : <Navbar />}
+      <div className={body}>{children}</div>
+      <Footer />
+    </div>
   )
 }
 

@@ -16,14 +16,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 
 const NavbarProduct = () => {
-  const {
-    cart_icon,
-    navbar_product,
-    brand_name,
-    navbar,
-    nav_link,
-    cart_button,
-  } = styles
+  const { navbar_product, brand_name, navbar, nav_link, cart_button } = styles
   const router = useRouter()
   const [query, setQuery] = useState('')
 
@@ -68,11 +61,11 @@ const NavbarProduct = () => {
           position="right"
         />
         <Link href="/carts" aria-label="shopping cart">
-          <ShoppingCartIcon className={cart_icon} />
+          <ShoppingCartIcon style={{ color: 'black', fontSize: 17 }} />
         </Link>
 
         <Link href="/carts" aria-label="account">
-          <AccountCircleIcon className={cart_icon} />
+          <AccountCircleIcon style={{ color: 'black', fontSize: 17 }} />
         </Link>
       </div>
     </div>

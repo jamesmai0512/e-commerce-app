@@ -1,10 +1,17 @@
+import { Suspense, useCallback, useMemo, useState } from 'react'
+import dynamic from 'next/dynamic'
+
+// Components
+import LoadingIndicator from '@/components/LoadingIndicator'
 import Layout from '@/components/Layout'
-import Button from '@/components/Button'
-import Cart from '@/components/Cart'
+const Button = dynamic(() => import('@/components/Button'))
+const Cart = dynamic(() => import('@/components/Cart'))
+
+// Constants
+import { API } from '@/constants/common'
 
 // Styles
 import styles from './Carts.module.css'
-import { useCallback, useState } from 'react'
 
 const {
   shopping_cart,
@@ -59,63 +66,64 @@ const Carts = ({ carts }: Props) => {
     [cartItems],
   )
 
-  const totalPrice = cartItems.reduce(
-    (acc, cartItem) => acc + cartItem.quantity * 85,
-    0,
+  const totalPrice = useMemo(
+    () => cartItems.reduce((acc, cartItem) => acc + cartItem.quantity * 85, 0),
+    [cartItems],
   )
 
   return (
     <Layout>
-      {cartItems && cartItems.length ? (
-        <div className={shopping_cart}>
-          <h1 className={shopping_cart_title}>Your shopping cart</h1>
+      <Suspense fallback={<LoadingIndicator />}>
+        {cartItems && cartItems.length ? (
+          <div className={shopping_cart}>
+            <h1 className={shopping_cart_title}>Your shopping cart</h1>
 
-          <div className={shopping_cart_info}>
-            <p className={shopping_cart_info_product}>Product</p>
-            <p className="table_name">Quantity</p>
-            <p className="table_name">Total</p>
-          </div>
-          <div className={shopping_cart_list}>
-            {cartItems.map((cartItem) => (
-              <Cart
-                key={cartItem.id}
-                productId={cartItem.productId}
-                cartId={cartItem.id}
-                quantity={cartItem.quantity}
-                price={cartItem.price}
-                updateCartItemQuantity={updateCartItemQuantity}
-                deleteCartItem={deleteCartItem}
-              />
-            ))}
-          </div>
-          <div className={shopping_cart_total}>
-            <div className={shopping_cart_total_content}>
-              <div className={shopping_cart_list_detail}>
-                <h3 className={shopping_cart_list_subtotal}>Subtotal</h3>
-                <h2 className={shopping_cart_list_price}>£{totalPrice}</h2>
+            <div className={shopping_cart_info}>
+              <p className={shopping_cart_info_product}>Product</p>
+              <p className="table_name">Quantity</p>
+              <p className="table_name">Total</p>
+            </div>
+            <div className={shopping_cart_list}>
+              {cartItems.map((cartItem) => (
+                <Cart
+                  key={cartItem.id}
+                  productId={cartItem.productId}
+                  cartId={cartItem.id}
+                  quantity={cartItem.quantity}
+                  price={cartItem.price}
+                  updateCartItemQuantity={updateCartItemQuantity}
+                  deleteCartItem={deleteCartItem}
+                />
+              ))}
+            </div>
+            <div className={shopping_cart_total}>
+              <div className={shopping_cart_total_content}>
+                <div className={shopping_cart_list_detail}>
+                  <h3 className={shopping_cart_list_subtotal}>Subtotal</h3>
+                  <h2 className={shopping_cart_list_price}>£{totalPrice}</h2>
+                </div>
+                <p className={shopping_carts_list}>
+                  Taxes and shipping are calculated at checkout
+                </p>
+                <Button background="purple" text="Go to checkout" />
               </div>
-              <p className={shopping_carts_list}>
-                Taxes and shipping are calculated at checkout
-              </p>
-              <Button background="purple" text="Go to checkout" />
             </div>
           </div>
-        </div>
-      ) : (
-        <div className={none_product}>
-          <div className={text_alert_info}>
-            <h1 className={text_alert}>There are no carts!!</h1>
+        ) : (
+          <div className={none_product}>
+            <div className={text_alert_info}>
+              <h1 className={text_alert}>There are no carts!!</h1>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </Suspense>
     </Layout>
   )
 }
 
 export const getServerSideProps = async () => {
   try {
-    const API = 'https://63f72caee40e087c9588cb02.mockapi.io/carts'
-    const res = await fetch(API)
+    const res = await fetch(`${API}/carts`)
     const carts = await res.json()
     return {
       props: {

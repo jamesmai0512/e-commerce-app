@@ -5,6 +5,7 @@ import styles from './Cart.module.css'
 import Image from 'next/image'
 import InputNumber from '../Input/InputNumber'
 import { useRouter } from 'next/router'
+import { API, cartImageUrl } from '@/constants/common'
 
 export interface CartProps {
   cartId: string
@@ -14,8 +15,6 @@ export interface CartProps {
   updateCartItemQuantity: (cartItemId: string, newQuantity: number) => void
   deleteCartItem: (cartItemId: string) => void
 }
-
-const API = 'https://63f72caee40e087c9588cb02.mockapi.io/carts'
 
 const Cart = ({
   quantity,
@@ -28,8 +27,6 @@ const Cart = ({
   const [value, setValue] = useState(quantity)
   const router = useRouter()
   // Image
-  const cartImageUrl =
-    'https://raw.githubusercontent.com/jamesmai0512/image-ecommerce/main/images/CartItem.png'
 
   const {
     cart_layout,
@@ -45,7 +42,7 @@ const Cart = ({
   const updateShoppingCart = useCallback(
     async (newQuantityCart: number) => {
       updateCartItemQuantity(cartId, newQuantityCart)
-      const response = await fetch(`${API}/${cartId}`, {
+      const response = await fetch(`${API}/carts/${cartId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

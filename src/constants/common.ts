@@ -38,6 +38,11 @@ type ProductBanner = {
   description: string
 }
 
+export const API = `https://63f72caee40e087c9588cb02.mockapi.io`
+
+export const cartImageUrl =
+  'https://raw.githubusercontent.com/jamesmai0512/image-ecommerce/main/images/CartItem.png'
+
 export const NAVBAR: Navbar[] = [
   { label: 'Plant Pots', query: 'PlantPots' },
   { label: 'Ceramics', query: 'Ceramics' },
@@ -141,7 +146,6 @@ export const ORDERSTEPS = [
   {
     id: 3,
     icon: Card,
-
     title: 'Unbeatable prices',
     description:
       'For our materials and quality you won’t find better prices anywhere',

@@ -164,7 +164,7 @@ exports[`Footer component Should render snapshot correctly 1`] = `
                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                 data-testid="LinkedInIcon"
                 focusable="false"
-                style="color: white;"
+                style="color: #fff;"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -176,7 +176,7 @@ exports[`Footer component Should render snapshot correctly 1`] = `
                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                 data-testid="FacebookIcon"
                 focusable="false"
-                style="color: white;"
+                style="color: #fff;"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -188,7 +188,7 @@ exports[`Footer component Should render snapshot correctly 1`] = `
                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                 data-testid="InstagramIcon"
                 focusable="false"
-                style="color: white;"
+                style="color: #fff;"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -200,7 +200,7 @@ exports[`Footer component Should render snapshot correctly 1`] = `
                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                 data-testid="TwitterIcon"
                 focusable="false"
-                style="color: white;"
+                style="color: #fff;"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -212,7 +212,7 @@ exports[`Footer component Should render snapshot correctly 1`] = `
                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                 data-testid="PinterestIcon"
                 focusable="false"
-                style="color: white;"
+                style="color: #fff;"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -385,7 +385,7 @@ exports[`Footer component Should render snapshot correctly 1`] = `
               class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
               data-testid="LinkedInIcon"
               focusable="false"
-              style="color: white;"
+              style="color: #fff;"
               viewBox="0 0 24 24"
             >
               <path
@@ -397,7 +397,7 @@ exports[`Footer component Should render snapshot correctly 1`] = `
               class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
               data-testid="FacebookIcon"
               focusable="false"
-              style="color: white;"
+              style="color: #fff;"
               viewBox="0 0 24 24"
             >
               <path
@@ -409,7 +409,7 @@ exports[`Footer component Should render snapshot correctly 1`] = `
               class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
               data-testid="InstagramIcon"
               focusable="false"
-              style="color: white;"
+              style="color: #fff;"
               viewBox="0 0 24 24"
             >
               <path
@@ -421,7 +421,7 @@ exports[`Footer component Should render snapshot correctly 1`] = `
               class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
               data-testid="TwitterIcon"
               focusable="false"
-              style="color: white;"
+              style="color: #fff;"
               viewBox="0 0 24 24"
             >
               <path
@@ -433,7 +433,7 @@ exports[`Footer component Should render snapshot correctly 1`] = `
               class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
               data-testid="PinterestIcon"
               focusable="false"
-              style="color: white;"
+              style="color: #fff;"
               viewBox="0 0 24 24"
             >
               <path

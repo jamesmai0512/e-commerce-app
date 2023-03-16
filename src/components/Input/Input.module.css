@@ -26,7 +26,7 @@
 }
 
 .right {
-  right: 113px;
+  right: 138px;
   top: 27px;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .search_btn_icon {
-  font-size: 17px;
+  font-size: 19px;
   color: black;
   position: absolute;
   left: -1px;
@@ -68,10 +68,6 @@
 .search_box:hover > .search_input {
   width: 135px;
   padding-left: 7px;
-}
-
-.right {
-  right: 160px;
 }
 
 .search_box:hover {

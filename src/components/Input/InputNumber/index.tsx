@@ -4,7 +4,7 @@ import { ChangeEvent, memo } from 'react'
 import styles from '../Input.module.css'
 
 export interface InputNumberProps {
-  value?: number
+  value: number
   handleDecrease: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => void

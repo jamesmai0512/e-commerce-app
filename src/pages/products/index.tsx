@@ -1,19 +1,28 @@
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
-import Product from '@/components/Product'
-import LoadingIndicator from '@/components/LoadingIndicator'
-import styles from './Product.module.css'
-import { TProduct } from '@/constants/common'
+import dynamic from 'next/dynamic'
+
+// Component
 import Layout from '@/components/Layout'
+import LoadingIndicator from '@/components/LoadingIndicator'
+const Product = dynamic(() => import('@/components/Product'), {
+  loading: () => <LoadingIndicator />,
+})
+
+// Constant
+import { API, TProduct } from '@/constants/common'
+
+// Styles
+import styles from './Product.module.css'
+
+// Utils
+import { fetcher } from '@/utils'
+import { useMemo } from 'react'
 
 interface ProductProps {
   products: TProduct[]
 }
-
-const API = `https://63f72caee40e087c9588cb02.mockapi.io/products`
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 const Products = ({ products }: ProductProps) => {
   const router = useRouter()
@@ -22,23 +31,21 @@ const Products = ({ products }: ProductProps) => {
   const { product, none_product, text_alert_info, text_alert } = styles
 
   const { data, error } = useSWR(
-    `${API}?search=${querySearch ? `${querySearch}` : ''}`,
+    `${API}/products/?search=${querySearch ? `${querySearch}` : ''}`,
     fetcher,
   )
 
   if (error) return { notFound: true }
-  if (!products)
-    return (
-      <div>
-        <LoadingIndicator />
-      </div>
-    )
+  if (!products) return <LoadingIndicator />
 
-  const filteredProducts = category
-    ? products.filter((product: TProduct) =>
+  const filteredProducts = useMemo(() => {
+    if (category) {
+      return products.filter((product: TProduct) =>
         product.category.includes(category as string),
       )
-    : products
+    }
+    return products
+  }, [category, products])
 
   return (
     <Layout>
@@ -66,10 +73,9 @@ const Products = ({ products }: ProductProps) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps<
-  ProductProps
-> = async () => {
-  const products = await fetcher(API)
+export const getStaticProps: GetStaticProps<ProductProps> = async () => {
+  const products = await fetcher(`${API}/products`)
+
   return {
     props: { products },
   }

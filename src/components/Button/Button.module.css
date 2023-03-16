@@ -1,6 +1,6 @@
 .dark {
   background: rgba(249, 249, 249, 0.15);
-  color: white;
+  color: #fff;
 }
 
 .button {
@@ -18,7 +18,7 @@
 
 .purple {
   background: #2a254b;
-  color: white;
+  color: #fff;
 }
 
 .button_sign {

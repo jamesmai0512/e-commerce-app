@@ -15,13 +15,14 @@ export type ProductProps = {
 
 const Product = ({ id, imageUrl, title, price, imageSize }: ProductProps) => {
   const router = useRouter()
-
+  const imageSizeValue = imageSize === 'small' ? '305' : '630'
   const {
     product_item,
     product_image,
     product_details,
     product_title,
     product_price,
+    product_image_banner,
   } = styles
 
   const handleClickProduct = (
@@ -40,7 +41,7 @@ const Product = ({ id, imageUrl, title, price, imageSize }: ProductProps) => {
         <Image
           src={imageUrl}
           alt="product-image"
-          width={imageSize === 'small' ? '305' : '630'}
+          width={imageSizeValue}
           height="375"
           loading="eager"
         />

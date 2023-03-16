@@ -10,13 +10,13 @@ export interface ButtonProps {
 }
 
 const Button = ({ onClick, type, background, text }: ButtonProps) => {
-  const { button, light, dark, purple } = styles
+  const { button } = styles
 
   return (
     <button
       type={type}
       data-testid="button-component"
-      className={`${styles.button} ${styles[background]}`}
+      className={`${button} ${styles[background]}`}
       onClick={onClick}
     >
       {text}
