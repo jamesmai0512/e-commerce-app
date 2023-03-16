@@ -6,7 +6,6 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     appDir: true,
-    enableUndici: true,
   },
 
   images: {
