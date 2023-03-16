@@ -22,6 +22,7 @@ module.exports = {
     config.resolve.plugins = [
       new TsconfigPathsPlugin({
         configFile: './tsconfig.json',
+        fs: 'empty',
       }),
     ]
 
