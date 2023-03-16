@@ -56,8 +56,7 @@ const ProductDetailPage = ({ product }: Props) => {
 
   useEffect(() => {
     const fetchCartsData = async () => {
-      const res = await fetch(`${API}/carts`)
-      const cartsData = await res.json()
+      const cartsData = await fetcher(`${API}/carts`)
       setCarts(cartsData)
     }
 
