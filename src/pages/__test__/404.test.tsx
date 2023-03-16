@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react'
 // import { createMemoryHistory } from 'history';
-import Custom404 from './404'
+import Custom404 from '../404'
 
 describe('Custom404', () => {
   it('Should render the page not found message', () => {

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import Document from './_document'
+import Document from '../_document'
 
 describe('Document component', () => {
   it('renders the HTML document', () => {
