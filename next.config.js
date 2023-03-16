@@ -1,3 +1,5 @@
+const { config } = require('process')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -16,14 +18,8 @@ const nextConfig = {
     defaultLocale: 'en',
   },
 
-  webpack: (config, { isServer }) => {
-    // Fixes npm packages that depend on `fs` module
-    if (!isServer) {
-      config.node = {
-        fs: 'empty',
-      }
-    }
-
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false }
     return config
   },
 }
