@@ -32,7 +32,11 @@ const InputSearch = ({
         className={search_input}
         placeholder="Search"
       />
-      <button type="submit" className={search_btn}>
+      <button
+        type="submit"
+        aria-label="Search for products"
+        className={search_btn}
+      >
         <SearchIcon className={search_btn_icon} />
       </button>
     </form>

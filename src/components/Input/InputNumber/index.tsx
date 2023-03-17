@@ -5,19 +5,11 @@ import styles from '../Input.module.css'
 
 export interface InputNumberProps {
   value: number
-  onDecrease: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  ) => void
-  onIncrease: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  ) => void
+  onDecrease: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  onIncrease: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
-const InputNumber = ({
-  value,
-  onDecrease,
-  onIncrease,
-}: InputNumberProps) => {
+const InputNumber = ({ value, onDecrease, onIncrease }: InputNumberProps) => {
   const {
     input_number_amount,
     button_control_left,
@@ -33,7 +25,9 @@ const InputNumber = ({
       >
         -
       </button>
+      <label htmlFor="cart-input-number"></label>
       <input
+        id="cart-input-number"
         data-testid="cart-input-number"
         min={0}
         max={10}

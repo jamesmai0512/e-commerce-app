@@ -8,7 +8,7 @@ const FooterDescription = () => {
   return (
     <div className={description}>
       <div className={list_item}>
-        <h3 className={title}>Menu</h3>
+        <h2 className={title}>Menu</h2>
         {MENU.map((i) => (
           <p className={title_item} key={i}>
             {i}
@@ -16,7 +16,7 @@ const FooterDescription = () => {
         ))}
       </div>
       <div className={list_item}>
-        <h3 className={title}>Categories</h3>
+        <h2 className={title}>Categories</h2>
         {CATEGORIES.map((i) => (
           <p className={title_item} key={i}>
             {i}
@@ -24,7 +24,7 @@ const FooterDescription = () => {
         ))}
       </div>
       <div className={list_item}>
-        <h3 className={title}>Our company</h3>
+        <h2 className={title}>Our company</h2>
         {OURCOMPANY.map((i) => (
           <p className={title_item} key={i}>
             {i}
