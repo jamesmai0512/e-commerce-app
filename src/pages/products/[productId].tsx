@@ -91,6 +91,9 @@ const ProductDetailPage = ({ product }: Props) => {
         } else {
           const response = await fetch(`${API}/carts`, {
             method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
               productId: product.id,
               quantity: newValue,
