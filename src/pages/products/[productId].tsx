@@ -149,7 +149,7 @@ const ProductDetailPage = ({ product }: Props) => {
           </div>
           <div className={product_detail_content}>
             <h1 className={product_detail_content_title}>{product.title}</h1>
-            <h3 className={product_detail_content_price}>£{product.price}</h3>
+            <h2 className={product_detail_content_price}>£{product.price}</h2>
             <h4 className={product_detail_content_description}>Description</h4>
             <div className={product_detail_content_description_content}>
               <p>

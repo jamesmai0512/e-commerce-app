@@ -25,18 +25,20 @@ const InputNumber = ({ value, onDecrease, onIncrease }: InputNumberProps) => {
       >
         -
       </button>
-      <label htmlFor="cart-input-number"></label>
-      <input
-        id="cart-input-number"
-        data-testid="cart-input-number"
-        min={0}
-        max={10}
-        readOnly
-        className={input_number}
-        type="number"
-        value={value}
-        step="1"
-      />
+      <label htmlFor="cart-input-number">
+        <input
+          id="cart-input-number"
+          data-testid="cart-input-number"
+          min={0}
+          max={10}
+          readOnly
+          className={input_number}
+          type="number"
+          value={value}
+          step="1"
+        />
+      </label>
+
       <button
         data-testid="button-control-right"
         onClick={onIncrease}
