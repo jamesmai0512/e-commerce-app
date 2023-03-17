@@ -30,13 +30,14 @@ const Products = ({ products }: ProductProps) => {
   const category = router.query.category
   const { product, none_product, text_alert_info, text_alert } = styles
 
-  const { data, error } = useSWR(
-    `${API}/products/?search=${querySearch ? `${querySearch}` : ''}`,
-    fetcher,
-  )
-
-  if (error) return { notFound: true }
-  if (!products) return <LoadingIndicator />
+  if (querySearch) {
+    const { data, error } = useSWR(
+      `${API}/products/?search=${querySearch ? `${querySearch}` : ''}`,
+      fetcher,
+    )
+    if (error) return { notFound: true }
+    if (!products) return <LoadingIndicator />
+  }
 
   const filteredProducts = useMemo(() => {
     if (category) {

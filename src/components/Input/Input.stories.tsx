@@ -16,11 +16,11 @@ const Template: Story<InputProps> = (args) => <Input {...args} />
 export const Default = Template.bind({})
 Default.args = {
   placeholder: 'Enter your email',
-  theme: 'dark',
+  background: 'dark',
 }
 
 export const Light = Template.bind({})
 Light.args = {
   placeholder: 'Enter your email',
-  theme: 'light',
+  background: 'light',
 }

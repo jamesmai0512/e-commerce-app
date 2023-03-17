@@ -13,20 +13,20 @@ const Template: Story<InputNumberProps> = (args) => <InputNumber {...args} />
 export const Default = Template.bind({})
 Default.args = {
   value: 1,
-  handleDecrease: action('handleDecrease'),
-  handleIncrease: action('handleIncrease'),
+  onDecrease: action('onDecrease'),
+  onIncrease: action('onIncrease'),
 }
 
 export const MaxValue = Template.bind({})
 MaxValue.args = {
   value: 10,
-  handleDecrease: action('handleDecrease'),
-  handleIncrease: action('handleIncrease'),
+  onDecrease: action('onDecrease'),
+  onIncrease: action('onIncrease'),
 }
 
 export const MinValue = Template.bind({})
 MinValue.args = {
   value: 0,
-  handleDecrease: action('handleDecrease'),
-  handleIncrease: action('handleIncrease'),
+  onDecrease: action('onDecrease'),
+  onIncrease: action('onIncrease'),
 }

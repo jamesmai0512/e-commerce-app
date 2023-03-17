@@ -5,18 +5,18 @@ import styles from '../Input.module.css'
 
 export interface InputNumberProps {
   value: number
-  handleDecrease: (
+  onDecrease: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => void
-  handleIncrease: (
+  onIncrease: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => void
 }
 
 const InputNumber = ({
   value,
-  handleDecrease,
-  handleIncrease,
+  onDecrease,
+  onIncrease,
 }: InputNumberProps) => {
   const {
     input_number_amount,
@@ -28,7 +28,7 @@ const InputNumber = ({
     <div className={input_number_amount}>
       <button
         data-testid="button-control-left"
-        onClick={handleDecrease}
+        onClick={onDecrease}
         className={button_control_left}
       >
         -
@@ -45,7 +45,7 @@ const InputNumber = ({
       />
       <button
         data-testid="button-control-right"
-        onClick={handleIncrease}
+        onClick={onIncrease}
         className={button_control_right}
       >
         +

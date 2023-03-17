@@ -2,6 +2,7 @@ import { Suspense, useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
+import useSWR from 'swr'
 
 // Component
 import Layout from '@/components/Layout'
@@ -74,14 +75,14 @@ const ProductDetailPage = ({ product }: Props) => {
         let updatedQuantity = newValue
         if (existingCartItem) {
           updatedQuantity += existingCartItem.quantity
-          const response = await fetch(`${API}/carts`, {
+          const response = await fetch(`${API}/carts/${existingCartItem.id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
               productId: product.id,
-              quantity: updatedQuantity,
+              quantity: newValue,
             }),
           })
           if (!response.ok) {
@@ -110,7 +111,7 @@ const ProductDetailPage = ({ product }: Props) => {
     [product.id, router],
   )
 
-  const handleIncrease = useCallback(
+  const onIncrease = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       event.preventDefault()
       if (value < 10) {
@@ -121,7 +122,7 @@ const ProductDetailPage = ({ product }: Props) => {
     [value],
   )
 
-  const handleDecrease = useCallback(
+  const onDecrease = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       event.preventDefault()
 
@@ -186,8 +187,8 @@ const ProductDetailPage = ({ product }: Props) => {
                 <h4>Amount</h4>
                 <InputNumber
                   value={value}
-                  handleIncrease={handleIncrease}
-                  handleDecrease={handleDecrease}
+                  onIncrease={onIncrease}
+                  onDecrease={onDecrease}
                 />
               </div>
 
@@ -217,7 +218,7 @@ const ProductDetailPage = ({ product }: Props) => {
               ranges, sales, pop up stores and more
             </p>
             <form className={form_email_submit}>
-              <Input theme="light" placeholder="your@email.com" />
+              <Input background="light" placeholder="your@email.com" />
               <Button background="purple" text="Sign Up" />
             </form>
           </div>

@@ -1,11 +1,13 @@
 import { memo, useCallback, useState } from 'react'
-
-// Styles
-import styles from './Cart.module.css'
 import Image from 'next/image'
 import InputNumber from '../Input/InputNumber'
 import { useRouter } from 'next/router'
-import { API, cartImageUrl } from '@/constants/common'
+
+// Styles
+import styles from './Cart.module.css'
+
+// Constant
+import { API, cartImageUrl } from '../../constants/common'
 
 export interface CartProps {
   cartId: string
@@ -72,7 +74,7 @@ const Cart = ({
     return data
   }, [cartId])
 
-  const handleIncrease = useCallback(() => {
+  const onIncrease = useCallback(() => {
     if (value < 10) {
       const newValue = value + 1
       setValue(newValue)
@@ -80,7 +82,7 @@ const Cart = ({
     }
   }, [value, updateShoppingCart])
 
-  const handleDecrease = useCallback(async () => {
+  const onDecrease = useCallback(async () => {
     const newValue = value - 1
     if (newValue === 0) {
       if (confirm('Are you sure you want to delete?')) {
@@ -124,8 +126,8 @@ const Cart = ({
       <div className={cart_layout_info_quantity}>
         <InputNumber
           value={value}
-          handleIncrease={handleIncrease}
-          handleDecrease={handleDecrease}
+          onIncrease={onIncrease}
+          onDecrease={onDecrease}
         />
       </div>
       <h3 className={cart_layout_info_product_price_total}>£{value * price}</h3>
